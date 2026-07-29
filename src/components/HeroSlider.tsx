@@ -115,12 +115,12 @@ export default function HeroSlider() {
       <div className="absolute -top-20 -left-20 w-96 h-96 bg-[#2E7D72]/20 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
       <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#3A9D8F]/20 rounded-full blur-3xl pointer-events-none"></div>
 
-      {/* 🌟 Interactive Dark Charcoal Cursor-Following Ambient Gradient Backdrop (Completely replaces old dotted grid) 🌟 */}
+      {/* 🌟 Interactive Signature Emerald-Teal Cursor-Following Ambient Gradient Backdrop 🌟 */}
       <div 
         className="absolute inset-0 pointer-events-none transition-all duration-300 ease-out"
         style={{
           background: heroMousePos.isHovered
-            ? `radial-gradient(circle 550px at ${heroMousePos.x}% ${heroMousePos.y}%, rgba(15, 23, 42, 0.16) 0%, rgba(30, 41, 59, 0.08) 45%, transparent 75%)`
+            ? `radial-gradient(circle 480px at ${heroMousePos.x}% ${heroMousePos.y}%, rgba(29, 94, 84, 0.28) 0%, rgba(46, 125, 114, 0.18) 35%, rgba(15, 23, 42, 0.08) 65%, transparent 80%)`
             : 'none'
         }}
       />
