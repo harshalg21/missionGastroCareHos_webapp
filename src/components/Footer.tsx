@@ -46,9 +46,11 @@ export default function Footer() {
         {/* Col 1: About Hospital */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl pastel-emerald-gradient flex items-center justify-center text-white shadow-sm">
-              <Activity className="w-5 h-5 stroke-[2.5]" />
-            </div>
+            <img 
+              src="/mgc-logo-icon.png" 
+              alt="Mission Gastrocare Official Emblem" 
+              className="w-10 h-10 rounded-xl shadow-sm object-contain bg-white p-0.5 border border-[#BDE3DB]" 
+            />
             <span className="font-extrabold text-lg tracking-tight text-white">
               MISSION GASTROCARE
             </span>

@@ -41,11 +41,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Logo & Brand Name (Clean, spacious, no duplicate Vadodara badge) */}
+          {/* Logo & Brand Name (Official emblem cropped cleanly from MGC_Logo.png) */}
           <Link to="/" className="flex items-center gap-3 group shrink-0">
-            <div className="w-11 h-11 rounded-xl pastel-emerald-gradient flex items-center justify-center shadow-md text-white group-hover:scale-105 transition-transform shrink-0">
-              <Activity className="w-6 h-6 stroke-[2.5]" />
-            </div>
+            <img 
+              src="/mgc-logo-icon.png" 
+              alt="Mission Gastrocare Official Emblem" 
+              className="w-11 h-11 rounded-xl shadow-md group-hover:scale-105 transition-transform shrink-0 object-contain bg-white p-0.5 border border-[#BDE3DB]"
+            />
             <div className="flex flex-col">
               <span className="font-extrabold text-xl tracking-tight text-[#164E43] group-hover:text-[#2E7D72] transition-colors leading-tight">
                 MISSION GASTROCARE
