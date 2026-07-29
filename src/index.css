@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+  
+  body {
+    background: #BFD4D9;
+    background-attachment: fixed;
+    color: #1E293B;
+    @apply antialiased font-sans selection:bg-[#BDE3DB] selection:text-[#164E43];
+  }
+}
+
+/* Custom Soft Pastel Glassmorphism & UI Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(169, 195, 201, 0.9);
+}
+
+/* 3D Doctor Card Flip Effect */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Custom Background Gradients with #BFD4D9 */
+.pastel-bg-gradient {
+  background: linear-gradient(135deg, #BFD4D9 0%, #CADBE0 50%, #B4C6CC 100%);
+}
+
+.grey-hero-gradient {
+  background: linear-gradient(135deg, #BFD4D9 0%, #C7DBE0 50%, #B2C7CD 100%);
+}
+
+/* Signature Brand Green Gradients (Intact) */
+.pastel-emerald-gradient {
+  background: linear-gradient(135deg, #3A9D8F 0%, #2E7D72 100%);
+}
+
+.emerald-glow-btn {
+  background: linear-gradient(135deg, #3A9D8F 0%, #2E7D72 100%);
+  box-shadow: 0 4px 14px -2px rgba(46, 125, 114, 0.3);
+}
+
+.emerald-glow-btn:hover {
+  box-shadow: 0 6px 18px 0px rgba(46, 125, 114, 0.45);
+}
+
+.pastel-teal-badge {
+  background: #E1F2EE;
+  color: #1D5E54;
+  border: 1px solid #BDE3DB;
+}
+
+.pastel-mint-card {
+  background: #FFFFFF;
+  border: 1px solid #A9C3C9;
+}
+
+.pastel-sky-card {
+  background: #F0F7FA;
+  border: 1px solid #A9C3C9;
+}
+
+.pastel-blue-badge {
+  background: #EBF0F5;
+  color: #2C4A6F;
+  border: 1px solid #CFDAE6;
+}
+
+.card-hover-effect {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover-effect:hover {
+  box-shadow: 0 18px 28px -4px rgba(46, 125, 114, 0.2), 0 6px 12px -4px rgba(15, 23, 42, 0.08);
+}
