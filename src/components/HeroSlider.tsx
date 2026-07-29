@@ -77,6 +77,8 @@ function CursorGradientHeading({ title }: { title: string }) {
 
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [heroMousePos, setHeroMousePos] = useState({ x: 50, y: 50, isHovered: false });
+  const heroRef = useRef<HTMLElement>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -86,18 +88,42 @@ export default function HeroSlider() {
     return () => clearInterval(timer);
   }, []);
 
+  const handleHeroMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    if (!heroRef.current) return;
+    const rect = heroRef.current.getBoundingClientRect();
+    const x = Math.round(((e.clientX - rect.left) / rect.width) * 100);
+    const y = Math.round(((e.clientY - rect.top) / rect.height) * 100);
+    setHeroMousePos({ x, y, isHovered: true });
+  };
+
+  const handleHeroMouseLeave = () => {
+    setHeroMousePos({ x: 50, y: 50, isHovered: false });
+  };
+
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section className="relative bg-gradient-to-br from-[#BFD4D9] via-[#CADBE0] to-[#B4C6CC] text-[#1E293B] overflow-hidden py-14 lg:py-20 border-b border-[#A9C3C9] group/hero">
+    <section 
+      ref={heroRef}
+      onMouseMove={handleHeroMouseMove}
+      onMouseLeave={handleHeroMouseLeave}
+      className="relative bg-gradient-to-br from-[#BFD4D9] via-[#CADBE0] to-[#B4C6CC] text-[#1E293B] overflow-hidden py-14 lg:py-20 border-b border-[#A9C3C9] group/hero"
+    >
       
       {/* Dynamic Ambient Glowing Orbs */}
       <div className="absolute -top-20 -left-20 w-96 h-96 bg-[#2E7D72]/20 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
       <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-[#3A9D8F]/20 rounded-full blur-3xl pointer-events-none"></div>
 
-      {/* Background Medical Mesh Grid */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none bg-[radial-gradient(#2E7D72_1.5px,transparent_1.5px)] [background-size:28px_28px]"></div>
+      {/* 🌟 Interactive Dark Charcoal Cursor-Following Ambient Gradient Backdrop (Completely replaces old dotted grid) 🌟 */}
+      <div 
+        className="absolute inset-0 pointer-events-none transition-all duration-300 ease-out"
+        style={{
+          background: heroMousePos.isHovered
+            ? `radial-gradient(circle 550px at ${heroMousePos.x}% ${heroMousePos.y}%, rgba(15, 23, 42, 0.16) 0%, rgba(30, 41, 59, 0.08) 45%, transparent 75%)`
+            : 'none'
+        }}
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
