@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Activity, 
-  MapPin, 
-  Phone, 
-  Clock, 
-  ShieldCheck, 
-  Instagram, 
-  Facebook, 
-  Linkedin, 
+import {
+  MapPin,
+  Phone,
+  Clock,
+  ShieldCheck,
+  Instagram,
+  Facebook,
+  Linkedin,
   Send
 } from 'lucide-react';
 
@@ -42,13 +41,15 @@ export default function Footer() {
 
       {/* Main 4-Column Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        
+
         {/* Col 1: About Hospital */}
         <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl pastel-emerald-gradient flex items-center justify-center text-white shadow-sm">
-              <Activity className="w-5 h-5 stroke-[2.5]" />
-            </div>
+            <img
+              src="/mgc-logo-icon.png"
+              alt="Mission Gastrocare Official Emblem"
+              className="w-10 h-10 rounded-xl shadow-sm object-contain bg-white p-0.5 border border-[#BDE3DB]"
+            />
             <span className="font-extrabold text-lg tracking-tight text-white">
               MISSION GASTROCARE
             </span>
@@ -152,16 +153,16 @@ export default function Footer() {
           <h5 className="text-white font-bold text-sm uppercase tracking-wider border-b border-[#334155] pb-2">
             Hospital Contact
           </h5>
-          
+
           <div className="flex items-start gap-2.5 text-xs">
             <MapPin className="w-4 h-4 text-[#5EEAD4] shrink-0 mt-0.5" />
-            <a 
-              href="https://maps.google.com/?q=Mission+Gastrocare+Vadodara" 
-              target="_blank" 
+            <a
+              href="https://maps.google.com/?q=Mission+Gastrocare+Vadodara"
+              target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#5EEAD4] transition-colors"
             >
-              "Doctor House", 19 Windward Park, Jetalpur Road, Vadodara 390020
+              &quot;Doctor House&quot;, 19 Windward Park, Jetalpur Road, Vadodara 390020
             </a>
           </div>
 
@@ -200,19 +201,45 @@ export default function Footer() {
 
       </div>
 
-      {/* Bottom Legal Bar */}
-      <div className="bg-[#0F172A] border-t border-[#334155] py-6 px-4 text-center text-xs text-[#94A3B8]">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>© {new Date().getFullYear()} Mission Gastrocare, Vadodara. All rights reserved.</p>
-          <div className="flex items-center gap-4 text-[#94A3B8] text-xs font-medium">
+      {/* Bottom Legal & Harshal & Team Signature Branding Bar */}
+      <div className="bg-[#0F172A] border-t border-[#334155] py-6 px-4 sm:px-6 lg:px-8 text-xs text-[#94A3B8]">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4">
+
+          {/* Left: Copyright */}
+          <p className="shrink-0 font-medium text-center lg:text-left">
+            © {new Date().getFullYear()} Mission Gastrocare, Vadodara. All rights reserved.
+          </p>
+
+          {/* Center: Harshal & Team Signature Branding Badge (Placed directly inside existing footer!) */}
+          <div className="flex items-center gap-2.5 group/signature cursor-default px-4 py-1.5 rounded-full bg-[#1E293B]/80 border border-[#334155] hover:border-[#5EEAD4] hover:bg-[#0B2E28] hover:shadow-[0_0_20px_rgba(94,234,212,0.3)] transition-all duration-300">
+            <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#5EEAD4]"></span>
+            </span>
+            <p className="text-slate-300 font-semibold text-xs tracking-wide transition-colors group-hover/signature:text-white flex items-center gap-1.5">
+              <span>Crafted with</span>
+              <span className="inline-block group-hover/signature:scale-125 group-hover/signature:rotate-12 transition-transform duration-300">💛</span>
+              <span>Love &amp;</span>
+              <span className="inline-block group-hover/signature:scale-125 group-hover/signature:-rotate-12 transition-transform duration-300">🔥</span>
+              <span>Passion by</span>
+              <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-emerald-300 to-teal-200 group-hover/signature:from-amber-200 group-hover/signature:via-emerald-200 group-hover/signature:to-white text-xs tracking-wider group-hover/signature:drop-shadow-[0_0_10px_rgba(94,234,212,0.6)] transition-all">
+                Harshal &amp; Team
+              </span>
+              <span className="inline-block group-hover/signature:scale-125 transition-transform duration-300">✨</span>
+            </p>
+          </div>
+
+          {/* Right: Quick Links */}
+          <div className="flex items-center gap-3 text-[#94A3B8] text-xs font-semibold shrink-0">
             <span>NABH Accredited</span>
             <span>•</span>
-            <Link to="/patient-rights" className="hover:text-[#5EEAD4]">Patient Charter</Link>
+            <Link to="/patient-rights" className="hover:text-[#5EEAD4] transition-colors">Patient Charter</Link>
             <span>•</span>
-            <Link to="/careers" className="hover:text-[#5EEAD4]">Careers</Link>
+            <Link to="/careers" className="hover:text-[#5EEAD4] transition-colors">Careers</Link>
             <span>•</span>
-            <Link to="/contact" className="hover:text-[#5EEAD4]">Contact Us</Link>
+            <Link to="/contact" className="hover:text-[#5EEAD4] transition-colors">Contact</Link>
           </div>
+
         </div>
       </div>
     </footer>

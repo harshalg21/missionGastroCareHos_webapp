@@ -41,11 +41,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Logo & Brand Name (Clean, spacious, no duplicate Vadodara badge) */}
+          {/* Logo & Brand Name (Official emblem cropped cleanly from MGC_Logo.png) */}
           <Link to="/" className="flex items-center gap-3 group shrink-0">
-            <div className="w-11 h-11 rounded-xl pastel-emerald-gradient flex items-center justify-center shadow-md text-white group-hover:scale-105 transition-transform shrink-0">
-              <Activity className="w-6 h-6 stroke-[2.5]" />
-            </div>
+            <img 
+              src="/mgc-logo-icon.png" 
+              alt="Mission Gastrocare Official Emblem" 
+              className="w-11 h-11 rounded-xl shadow-md group-hover:scale-105 transition-transform shrink-0 object-contain bg-white p-0.5 border border-[#BDE3DB]"
+            />
             <div className="flex flex-col">
               <span className="font-extrabold text-xl tracking-tight text-[#164E43] group-hover:text-[#2E7D72] transition-colors leading-tight">
                 MISSION GASTROCARE
@@ -176,16 +178,8 @@ export default function Navbar() {
           {/* Action CTAs */}
           <div className="hidden lg:flex items-center gap-2 xl:gap-3">
             <Link
-              to="/ai-triage"
-              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-bold bg-[#EBF0F5] text-[#2C4A6F] border border-[#CFDAE6] hover:bg-white transition-colors shadow-sm"
-            >
-              <Bot className="w-4 h-4 text-[#2C4A6F]" />
-              <span>AI Triage</span>
-            </Link>
-
-            <Link
               to="/book-appointment"
-              className="flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs xl:text-sm text-white pastel-emerald-gradient hover:opacity-95 transition-all shadow-md active:scale-95"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-xs xl:text-sm text-white pastel-emerald-gradient hover:opacity-95 transition-all shadow-md active:scale-95"
             >
               <Calendar className="w-4 h-4 stroke-[2.5]" />
               <span>Book Appointment</span>
@@ -271,15 +265,7 @@ export default function Navbar() {
             Contact Us
           </Link>
 
-          <div className="pt-4 border-t border-[#A9C3C9] space-y-2">
-            <Link
-              to="/ai-triage"
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-[#2C4A6F] bg-[#EBF0F5] border border-[#CFDAE6]"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              <Bot className="w-5 h-5 text-[#2C4A6F]" />
-              Launch AI Symptom Triage
-            </Link>
+          <div className="pt-4 border-t border-[#A9C3C9]">
             <Link
               to="/book-appointment"
               className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-[#FFFFFF] pastel-emerald-gradient shadow-md"

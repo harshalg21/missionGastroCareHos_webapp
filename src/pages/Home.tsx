@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import HeroSlider from '@/components/HeroSlider';
 import ServiceCard from '@/components/ServiceCard';
 import DoctorCard, { Doctor } from '@/components/DoctorCard';
+import FacilityCard from '@/components/FacilityCard';
 import SymptomChecker from '@/components/SymptomChecker';
 import ReviewSystem from '@/components/ReviewSystem';
 import InsurancePartners from '@/components/InsurancePartners';
@@ -106,6 +107,45 @@ const doctors: Doctor[] = [
   }
 ];
 
+const homeFacilities = [
+  {
+    id: "modular-ot",
+    title: "Modular Operation Theatres",
+    category: "Sterile Operating Theater",
+    description: "HEPA laminar airflow Operation Theatres equipped for advanced laparoscopic & open HPB procedures.",
+    features: ["HEPA Laminar Airflow", "4K Laparoscopic Towers", "Sterile Infection Control"],
+    icon: <Building2 className="w-6 h-6 stroke-[2.5]" />,
+    imageUrl: "/facilities/modular-ot.jpg"
+  },
+  {
+    id: "endoscopy-suite",
+    title: "Endoscopy & ERCP Suite",
+    category: "Diagnostic & ERCP",
+    description: "High-Definition Olympus endoscopy & ERCP suites with video recording and sterilization.",
+    features: ["Olympus NBI High-Def Scopes", "C-Arm Fluoroscopy ERCP", "Therapeutic Interventions"],
+    icon: <Microscope className="w-6 h-6 stroke-[2.5]" />,
+    imageUrl: "/facilities/endoscopy-suite.png"
+  },
+  {
+    id: "icu",
+    title: "GI ICU & HDU",
+    category: "24x7 Critical Care",
+    description: "Dedicated high-dependency unit for post-operative monitoring and acute pancreatitis care.",
+    features: ["Mechanical Ventilator Support", "24x7 Intensivist Supervision", "Post-Surgical ICU Recovery"],
+    icon: <Activity className="w-6 h-6 stroke-[2.5]" />,
+    imageUrl: "/facilities/icu.jpg"
+  },
+  {
+    id: "radiology-lab",
+    title: "CT Scan, Radiology & Pharmacy",
+    category: "Advanced Diagnostics",
+    description: "In-house pathology lab, CT scanning, digital radiology, ultrasound, and 24x7 emergency pharmacy.",
+    features: ["Multi-Slice CT Scanner", "Color Doppler Ultrasound", "24x7 Emergency Pharmacy"],
+    icon: <ShieldCheck className="w-6 h-6 stroke-[2.5]" />,
+    imageUrl: "/facilities/ct-scan.jpg"
+  }
+];
+
 export default function Home() {
   return (
     <div className="space-y-16 pb-16 bg-transparent text-[#1E293B]">
@@ -174,54 +214,31 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hospital Facilities & Infrastructure Banner */}
-      <section className="bg-gradient-to-r from-[#BFD4D9] via-[#CADBE0] to-[#B4C6CC] border-y border-[#A9C3C9] py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-3xl mx-auto space-y-2">
-            <span className="text-[#1D5E54] font-extrabold text-xs uppercase tracking-wider">
+      {/* Hospital Facilities & Infrastructure Section with 2-State Hover Transform */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-4 border-b border-[#A9C3C9] pb-6">
+          <div>
+            <span className="text-[#1D5E54] font-extrabold text-xs uppercase tracking-wider block mb-1">
               State-of-the-Art Infrastructure
             </span>
             <h2 className="text-3xl font-extrabold text-[#0F172A]">Built for High-Complexity GI Procedures</h2>
-            <p className="text-xs text-[#475569] font-medium">
+            <p className="text-xs text-[#475569] mt-1 max-w-2xl font-medium">
               Equipped with modular laminar airflow operation theatres, high-definition Olympus endoscopy towers, and dedicated GI intensive care units.
             </p>
           </div>
+          <Link
+            to="/facilities"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-[#A9C3C9] text-[#1D5E54] text-xs font-bold hover:bg-[#F0F7FA] transition-colors shadow-sm"
+          >
+            <span>Explore All Facilities &amp; Wards</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white border border-[#A9C3C9] p-6 rounded-3xl space-y-3 shadow-sm">
-              <Building2 className="w-8 h-8 text-[#2E7D72]" />
-              <h3 className="text-base font-bold text-[#0F172A]">Modular OTs</h3>
-              <p className="text-xs text-[#475569]">Laminar airflow Operation Theatres equipped for advanced laparoscopic &amp; open HPB procedures.</p>
-            </div>
-
-            <div className="bg-white border border-[#A9C3C9] p-6 rounded-3xl space-y-3 shadow-sm">
-              <Microscope className="w-8 h-8 text-[#2E7D72]" />
-              <h3 className="text-base font-bold text-[#0F172A]">Endoscopy Suite</h3>
-              <p className="text-xs text-[#475569]">High-Definition Olympus endoscopy &amp; ERCP suites with video recording and sterilization.</p>
-            </div>
-
-            <div className="bg-white border border-[#A9C3C9] p-6 rounded-3xl space-y-3 shadow-sm">
-              <Activity className="w-8 h-8 text-[#2E7D72]" />
-              <h3 className="text-base font-bold text-[#0F172A]">GI ICU &amp; HDU</h3>
-              <p className="text-xs text-[#475569]">Dedicated high-dependency unit for post-operative monitoring and acute pancreatitis care.</p>
-            </div>
-
-            <div className="bg-white border border-[#A9C3C9] p-6 rounded-3xl space-y-3 shadow-sm">
-              <ShieldCheck className="w-8 h-8 text-[#2E7D72]" />
-              <h3 className="text-base font-bold text-[#0F172A]">Diagnostic &amp; Pharmacy</h3>
-              <p className="text-xs text-[#475569]">In-house pathology lab, digital radiology, ultrasound, and 24x7 emergency pharmacy.</p>
-            </div>
-          </div>
-
-          <div className="text-center pt-4">
-            <Link
-              to="/facilities"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white pastel-emerald-gradient font-bold text-xs hover:opacity-95 shadow-md"
-            >
-              <span>Explore All Hospital Facilities &amp; Ward Rooms</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {homeFacilities.map((facility) => (
+            <FacilityCard key={facility.id} {...facility} />
+          ))}
         </div>
       </section>
 
