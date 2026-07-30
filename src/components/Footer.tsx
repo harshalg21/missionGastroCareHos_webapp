@@ -8,9 +8,7 @@ import {
   Instagram, 
   Facebook, 
   Linkedin, 
-  Send,
-  Sparkles,
-  Heart
+  Send
 } from 'lucide-react';
 
 export default function Footer() {
@@ -203,51 +201,45 @@ export default function Footer() {
 
       </div>
 
-      {/* High-Impact Creator & Branding Showcase Bar */}
-      <div className="bg-[#0B2E28] border-t border-b border-[#164E43] py-4 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+      {/* Bottom Legal & Harshal & Team Signature Branding Bar */}
+      <div className="bg-[#0F172A] border-t border-[#334155] py-6 px-4 sm:px-6 lg:px-8 text-xs text-[#94A3B8]">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-4">
           
-          <div className="flex items-center gap-3 group/creator cursor-default">
-            <div className="relative flex h-3 w-3 items-center justify-center">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 h-2 bg-[#5EEAD4]"></span>
-            </div>
+          {/* Left: Copyright */}
+          <p className="shrink-0 font-medium text-center lg:text-left">
+            © {new Date().getFullYear()} Mission Gastrocare, Vadodara. All rights reserved.
+          </p>
 
-            <p className="text-slate-300 font-semibold transition-all group-hover/creator:text-white flex items-center gap-1.5 flex-wrap">
+          {/* Center: Harshal & Team Signature Branding Badge (Placed directly inside existing footer!) */}
+          <div className="flex items-center gap-2.5 group/signature cursor-default px-4 py-1.5 rounded-full bg-[#1E293B]/80 border border-[#334155] hover:border-[#5EEAD4] hover:bg-[#0B2E28] hover:shadow-[0_0_20px_rgba(94,234,212,0.3)] transition-all duration-300">
+            <span className="relative flex h-2.5 w-2.5 items-center justify-center">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#5EEAD4]"></span>
+            </span>
+            <p className="text-slate-300 font-semibold text-xs tracking-wide transition-colors group-hover/signature:text-white flex items-center gap-1.5">
               <span>Crafted with</span>
-              <span className="text-amber-400 font-extrabold inline-flex items-center gap-1 group-hover/creator:scale-125 transition-transform duration-300">
-                💛
-              </span>
-              <span>&amp; Passion by</span>
-              <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-emerald-300 to-teal-200 group-hover/creator:from-amber-200 group-hover/creator:via-emerald-200 group-hover/creator:to-white text-sm tracking-wide group-hover/creator:drop-shadow-[0_0_12px_rgba(94,234,212,0.5)] transition-all">
+              <span className="inline-block group-hover/signature:scale-125 group-hover/signature:rotate-12 transition-transform duration-300">💛</span>
+              <span>&amp;</span>
+              <span className="inline-block group-hover/signature:scale-125 group-hover/signature:-rotate-12 transition-transform duration-300">🔥</span>
+              <span>Passion by</span>
+              <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-emerald-300 to-teal-200 group-hover/signature:from-amber-200 group-hover/signature:via-emerald-200 group-hover/signature:to-white text-xs tracking-wider group-hover/signature:drop-shadow-[0_0_10px_rgba(94,234,212,0.6)] transition-all">
                 Harshal &amp; Team
               </span>
+              <span className="inline-block group-hover/signature:scale-125 transition-transform duration-300">✨</span>
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
-            <span className="px-3.5 py-1.5 rounded-full text-[11px] font-extrabold bg-[#164E43]/90 border border-[#2E7D72] text-[#5EEAD4] shadow-sm hover:border-[#5EEAD4] hover:shadow-[0_0_15px_rgba(94,234,212,0.3)] transition-all flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-              <span>Digital Architecture &amp; Engineering</span>
-            </span>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Bottom Legal Bar */}
-      <div className="bg-[#0F172A] py-6 px-4 text-center text-xs text-[#94A3B8]">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p>© {new Date().getFullYear()} Mission Gastrocare, Vadodara. All rights reserved.</p>
-          <div className="flex items-center gap-4 text-[#94A3B8] text-xs font-medium">
+          {/* Right: Quick Links */}
+          <div className="flex items-center gap-3 text-[#94A3B8] text-xs font-semibold shrink-0">
             <span>NABH Accredited</span>
             <span>•</span>
-            <Link to="/patient-rights" className="hover:text-[#5EEAD4]">Patient Charter</Link>
+            <Link to="/patient-rights" className="hover:text-[#5EEAD4] transition-colors">Patient Charter</Link>
             <span>•</span>
-            <Link to="/careers" className="hover:text-[#5EEAD4]">Careers</Link>
+            <Link to="/careers" className="hover:text-[#5EEAD4] transition-colors">Careers</Link>
             <span>•</span>
-            <Link to="/contact" className="hover:text-[#5EEAD4]">Contact Us</Link>
+            <Link to="/contact" className="hover:text-[#5EEAD4] transition-colors">Contact</Link>
           </div>
+
         </div>
       </div>
     </footer>
