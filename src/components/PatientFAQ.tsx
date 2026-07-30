@@ -43,10 +43,10 @@ export default function PatientFAQ() {
   };
 
   return (
-    <section className="bg-white border border-[#A9C3C9] rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-2xl space-y-8 text-[#1E293B] hover:bg-[#0F172A] hover:border-[#2E7D72] hover:text-white transition-all duration-500 group/faq-sec">
+    <section className="bg-white border border-[#A9C3C9] rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-2xl space-y-8 text-[#1E293B] hover:bg-[#0B2E28] hover:border-[#3A9D8F] hover:text-white transition-all duration-500 group/faq-sec">
       
       {/* Header */}
-      <div className="border-b border-slate-100 group-hover/faq-sec:border-slate-800 pb-6 transition-colors">
+      <div className="border-b border-slate-100 group-hover/faq-sec:border-[#164E43] pb-6 transition-colors">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full pastel-teal-badge text-xs font-bold uppercase tracking-wider mb-2">
           <HelpCircle className="w-4 h-4 text-[#1D5E54]" />
           <span>Patient Guidance &amp; Information</span>
@@ -54,7 +54,7 @@ export default function PatientFAQ() {
         <h2 className="text-2xl font-extrabold text-[#0F172A] group-hover/faq-sec:text-white transition-colors">
           Frequently Asked Patient Questions
         </h2>
-        <p className="text-xs text-[#475569] group-hover/faq-sec:text-slate-300 mt-1 font-medium transition-colors">
+        <p className="text-xs text-[#475569] group-hover/faq-sec:text-[#A7F3D0] mt-1 font-medium transition-colors">
           Clear answers regarding procedures, fasting guidelines, OPD visits, and insurance claims.
         </p>
       </div>
@@ -68,8 +68,8 @@ export default function PatientFAQ() {
               key={idx}
               className={`border rounded-2xl transition-all duration-500 ${
                 isOpen 
-                  ? 'bg-[#FAFBFB] border-[#2E7D72] group-hover/faq-sec:bg-slate-900 group-hover/faq-sec:border-[#4DE2D1] shadow-sm' 
-                  : 'bg-white border-[#A9C3C9] group-hover/faq-sec:bg-slate-800/90 group-hover/faq-sec:border-[#3A9D8F] hover:border-slate-300'
+                  ? 'bg-[#FAFBFB] border-[#2E7D72] group-hover/faq-sec:bg-[#061815] group-hover/faq-sec:border-[#5EEAD4] shadow-sm' 
+                  : 'bg-white border-[#A9C3C9] group-hover/faq-sec:bg-[#061815]/90 group-hover/faq-sec:border-[#2E7D72] hover:border-slate-300'
               }`}
             >
               <button
@@ -77,18 +77,18 @@ export default function PatientFAQ() {
                 className="w-full p-4 text-left flex items-center justify-between gap-4 focus:outline-none"
               >
                 <div className="flex items-center gap-3">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1D5E54] group-hover/faq-sec:text-emerald-200 bg-[#E1F2EE] group-hover/faq-sec:bg-slate-900 px-2.5 py-1 rounded border border-[#BDE3DB] group-hover/faq-sec:border-emerald-800 transition-colors">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#1D5E54] group-hover/faq-sec:text-[#A7F3D0] bg-[#E1F2EE] group-hover/faq-sec:bg-[#164E43] px-2.5 py-1 rounded border border-[#BDE3DB] group-hover/faq-sec:border-[#2E7D72] transition-colors">
                     {faq.category}
                   </span>
                   <h3 className="font-extrabold text-sm text-[#0F172A] group-hover/faq-sec:text-white transition-colors">
                     {faq.question}
                   </h3>
                 </div>
-                <ChevronDown className={`w-5 h-5 text-[#2E7D72] group-hover/faq-sec:text-emerald-400 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-5 h-5 text-[#2E7D72] group-hover/faq-sec:text-[#5EEAD4] shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {isOpen && (
-                <div className="px-4 pb-4 text-xs text-[#475569] group-hover/faq-sec:text-slate-200 leading-relaxed font-medium border-t border-slate-100 group-hover/faq-sec:border-slate-800 pt-3 animate-in fade-in duration-200 transition-colors">
+                <div className="px-4 pb-4 text-xs text-[#475569] group-hover/faq-sec:text-[#E2E8F0] leading-relaxed font-medium border-t border-slate-100 group-hover/faq-sec:border-[#164E43] pt-3 animate-in fade-in duration-200 transition-colors">
                   {faq.answer}
                 </div>
               )}

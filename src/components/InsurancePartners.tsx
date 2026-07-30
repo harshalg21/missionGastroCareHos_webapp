@@ -16,10 +16,10 @@ const insurancePartners = [
 
 export default function InsurancePartners() {
   return (
-    <section className="bg-white border border-[#A9C3C9] rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-2xl space-y-8 text-[#1E293B] hover:bg-[#0F172A] hover:border-[#2E7D72] hover:text-white transition-all duration-500 group/ins-sec">
+    <section className="bg-white border border-[#A9C3C9] rounded-3xl p-6 sm:p-8 shadow-md hover:shadow-2xl space-y-8 text-[#1E293B] hover:bg-[#0B2E28] hover:border-[#3A9D8F] hover:text-white transition-all duration-500 group/ins-sec">
       
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-100 group-hover/ins-sec:border-slate-800 pb-6 transition-colors">
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-100 group-hover/ins-sec:border-[#164E43] pb-6 transition-colors">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full pastel-teal-badge text-xs font-bold uppercase tracking-wider mb-2">
             <ShieldCheck className="w-4 h-4 text-[#1D5E54]" />
@@ -28,7 +28,7 @@ export default function InsurancePartners() {
           <h2 className="text-2xl font-extrabold text-[#0F172A] group-hover/ins-sec:text-white transition-colors">
             Empanelled Insurance &amp; TPA Partners
           </h2>
-          <p className="text-xs text-[#475569] group-hover/ins-sec:text-slate-300 mt-1 font-medium transition-colors">
+          <p className="text-xs text-[#475569] group-hover/ins-sec:text-[#A7F3D0] mt-1 font-medium transition-colors">
             Hassle-free 100% cashless pre-authorization for surgical admissions and ERCP procedures.
           </p>
         </div>
@@ -47,15 +47,15 @@ export default function InsurancePartners() {
         {insurancePartners.map((partner, idx) => (
           <div
             key={idx}
-            className="bg-[#FAFBFB] border border-[#A9C3C9] group-hover/ins-sec:bg-slate-800/90 group-hover/ins-sec:border-[#3A9D8F] p-4 rounded-2xl text-center space-y-1.5 shadow-sm hover:border-[#2E7D72] transition-all duration-500"
+            className="bg-[#FAFBFB] border border-[#A9C3C9] group-hover/ins-sec:bg-[#061815] group-hover/ins-sec:border-[#2E7D72] p-4 rounded-2xl text-center space-y-1.5 shadow-sm hover:border-[#3A9D8F] transition-all duration-500"
           >
-            <div className="w-8 h-8 rounded-full bg-[#E1F2EE] group-hover/ins-sec:bg-emerald-950 border border-[#BDE3DB] group-hover/ins-sec:border-emerald-700 text-[#1D5E54] group-hover/ins-sec:text-emerald-300 flex items-center justify-center mx-auto text-xs font-extrabold transition-colors">
+            <div className="w-8 h-8 rounded-full bg-[#E1F2EE] group-hover/ins-sec:bg-[#164E43] border border-[#BDE3DB] group-hover/ins-sec:border-[#3A9D8F] text-[#1D5E54] group-hover/ins-sec:text-white flex items-center justify-center mx-auto text-xs font-extrabold transition-colors">
               ✓
             </div>
             <h3 className="font-extrabold text-xs text-[#0F172A] group-hover/ins-sec:text-white line-clamp-2 transition-colors">
               {partner.name}
             </h3>
-            <span className="inline-block text-[9px] font-bold text-[#1D5E54] group-hover/ins-sec:text-emerald-300 bg-[#E1F2EE] group-hover/ins-sec:bg-slate-900 px-2 py-0.5 rounded border border-[#BDE3DB] group-hover/ins-sec:border-emerald-800 transition-colors">
+            <span className="inline-block text-[9px] font-bold text-[#1D5E54] group-hover/ins-sec:text-[#A7F3D0] bg-[#E1F2EE] group-hover/ins-sec:bg-[#164E43] px-2 py-0.5 rounded border border-[#BDE3DB] group-hover/ins-sec:border-[#2E7D72] transition-colors">
               {partner.type}
             </span>
           </div>
@@ -63,31 +63,31 @@ export default function InsurancePartners() {
       </div>
 
       {/* Cashless Claim Process Steps */}
-      <div className="bg-[#FAFBFB] border border-[#A9C3C9] group-hover/ins-sec:bg-slate-900/90 group-hover/ins-sec:border-[#2E7D72] p-6 rounded-2xl space-y-4 transition-all duration-500">
+      <div className="bg-[#FAFBFB] border border-[#A9C3C9] group-hover/ins-sec:bg-[#061815] group-hover/ins-sec:border-[#2E7D72] p-6 rounded-2xl space-y-4 transition-all duration-500">
         <h3 className="font-extrabold text-sm text-[#0F172A] group-hover/ins-sec:text-white flex items-center gap-2 transition-colors">
-          <FileText className="w-4 h-4 text-[#2E7D72] group-hover/ins-sec:text-emerald-400" />
+          <FileText className="w-4 h-4 text-[#2E7D72] group-hover/ins-sec:text-[#5EEAD4]" />
           <span>4-Step Cashless Pre-Authorization Admission Process</span>
         </h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs font-medium">
-          <div className="space-y-1 bg-white border border-[#A9C3C9] group-hover/ins-sec:bg-slate-800/90 group-hover/ins-sec:border-[#3A9D8F] p-3 rounded-xl transition-all duration-500">
-            <span className="font-extrabold text-[#1D5E54] group-hover/ins-sec:text-emerald-300 block transition-colors">Step 1: ID Submission</span>
-            <p className="text-[#475569] group-hover/ins-sec:text-slate-200 text-[11px] transition-colors">Submit Health Card, Policy Number &amp; Govt Photo ID at the TPA Desk.</p>
+          <div className="space-y-1 bg-white border border-[#A9C3C9] group-hover/ins-sec:bg-[#0B2E28] group-hover/ins-sec:border-[#3A9D8F] p-3 rounded-xl transition-all duration-500">
+            <span className="font-extrabold text-[#1D5E54] group-hover/ins-sec:text-[#5EEAD4] block transition-colors">Step 1: ID Submission</span>
+            <p className="text-[#475569] group-hover/ins-sec:text-[#E2E8F0] text-[11px] transition-colors">Submit Health Card, Policy Number &amp; Govt Photo ID at the TPA Desk.</p>
           </div>
 
-          <div className="space-y-1 bg-white border border-[#A9C3C9] group-hover/ins-sec:bg-slate-800/90 group-hover/ins-sec:border-[#3A9D8F] p-3 rounded-xl transition-all duration-500">
-            <span className="font-extrabold text-[#1D5E54] group-hover/ins-sec:text-emerald-300 block transition-colors">Step 2: Pre-Auth Request</span>
-            <p className="text-[#475569] group-hover/ins-sec:text-slate-200 text-[11px] transition-colors">Our TPA coordinator sends pre-auth form &amp; doctor notes to your insurer.</p>
+          <div className="space-y-1 bg-white border border-[#A9C3C9] group-hover/ins-sec:bg-[#0B2E28] group-hover/ins-sec:border-[#3A9D8F] p-3 rounded-xl transition-all duration-500">
+            <span className="font-extrabold text-[#1D5E54] group-hover/ins-sec:text-[#5EEAD4] block transition-colors">Step 2: Pre-Auth Request</span>
+            <p className="text-[#475569] group-hover/ins-sec:text-[#E2E8F0] text-[11px] transition-colors">Our TPA coordinator sends pre-auth form &amp; doctor notes to your insurer.</p>
           </div>
 
-          <div className="space-y-1 bg-white border border-[#A9C3C9] group-hover/ins-sec:bg-slate-800/90 group-hover/ins-sec:border-[#3A9D8F] p-3 rounded-xl transition-all duration-500">
-            <span className="font-extrabold text-[#1D5E54] group-hover/ins-sec:text-emerald-300 block transition-colors">Step 3: Quick Approval</span>
-            <p className="text-[#475569] group-hover/ins-sec:text-slate-200 text-[11px] transition-colors">Initial approval letter issued within 2-4 hours by insurance panel.</p>
+          <div className="space-y-1 bg-white border border-[#A9C3C9] group-hover/ins-sec:bg-[#0B2E28] group-hover/ins-sec:border-[#3A9D8F] p-3 rounded-xl transition-all duration-500">
+            <span className="font-extrabold text-[#1D5E54] group-hover/ins-sec:text-[#5EEAD4] block transition-colors">Step 3: Quick Approval</span>
+            <p className="text-[#475569] group-hover/ins-sec:text-[#E2E8F0] text-[11px] transition-colors">Initial approval letter issued within 2-4 hours by insurance panel.</p>
           </div>
 
-          <div className="space-y-1 bg-white border border-[#A9C3C9] group-hover/ins-sec:bg-slate-800/90 group-hover/ins-sec:border-[#3A9D8F] p-3 rounded-xl transition-all duration-500">
-            <span className="font-extrabold text-[#1D5E54] group-hover/ins-sec:text-emerald-300 block transition-colors">Step 4: Cashless Treatment</span>
-            <p className="text-[#475569] group-hover/ins-sec:text-slate-200 text-[11px] transition-colors">Undergo surgery or procedure with 0 upfront cash requirement.</p>
+          <div className="space-y-1 bg-white border border-[#A9C3C9] group-hover/ins-sec:bg-[#0B2E28] group-hover/ins-sec:border-[#3A9D8F] p-3 rounded-xl transition-all duration-500">
+            <span className="font-extrabold text-[#1D5E54] group-hover/ins-sec:text-[#5EEAD4] block transition-colors">Step 4: Cashless Treatment</span>
+            <p className="text-[#475569] group-hover/ins-sec:text-[#E2E8F0] text-[11px] transition-colors">Undergo surgery or procedure with 0 upfront cash requirement.</p>
           </div>
         </div>
       </div>
