@@ -1,6 +1,98 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Microscope, Activity, ShieldCheck, CheckCircle2, Bed, Tv, Wifi, Wind } from 'lucide-react';
+import FacilityCard from '@/components/FacilityCard';
+import { 
+  Building2, 
+  Microscope, 
+  Activity, 
+  ShieldCheck, 
+  CheckCircle2, 
+  Bed, 
+  Users, 
+  Stethoscope,
+  ArrowRight
+} from 'lucide-react';
+
+const facilitiesList = [
+  {
+    id: "modular-ot",
+    title: "Modular Operation Theatres",
+    category: "Sterile Operating Theater",
+    description: "Equipped with HEPA laminar airflow filtration to maintain zero-infection sterile environments. Advanced Karl Storz & Stryker 4K laparoscopic towers for minimal-access GI, bariatric, and HPB cancer procedures.",
+    features: [
+      "HEPA Laminar Airflow & Anti-Bacterial Walls",
+      "High-Definition 4K Laparoscopic Towers",
+      "Dedicated Anaesthesia Workstations & Invasive Monitoring"
+    ],
+    icon: <Building2 className="w-6 h-6 stroke-[2.5]" />,
+    imageUrl: "/facilities/modular-ot.jpg"
+  },
+  {
+    id: "endoscopy-suite",
+    title: "Advanced Endoscopy & ERCP Suite",
+    category: "Diagnostic & ERCP",
+    description: "Dedicated video endoscopy room featuring Olympus Narrow Band Imaging (NBI) endoscopy systems for early cancer detection, therapeutic ERCP stone extraction, and esophageal motility testing.",
+    features: [
+      "Olympus High-Def Upper GI Endoscopes & Colonoscopes",
+      "C-Arm Fluoroscopy for Precision ERCP",
+      "Automated Endoscope Reprocessing & Disinfection"
+    ],
+    icon: <Microscope className="w-6 h-6 stroke-[2.5]" />,
+    imageUrl: "/facilities/endoscopy-suite.png"
+  },
+  {
+    id: "icu",
+    title: "GI Intensive Care Unit (ICU & HDU)",
+    category: "24x7 Critical Care",
+    description: "Multi-bed critical care unit staffed 24x7 by intensivists and trained ICU nurses. Specialized for severe acute pancreatitis, GI bleeding, acute liver failure, and post-major HPB surgery recovery.",
+    features: [
+      "Mechanical Ventilators & Infusion Pumps",
+      "Central Hemodynamic & ABG Monitoring",
+      "1:1 Nurse-to-Patient Ratio for Critical GI Cases"
+    ],
+    icon: <Activity className="w-6 h-6 stroke-[2.5]" />,
+    imageUrl: "/facilities/icu.jpg"
+  },
+  {
+    id: "radiology-lab",
+    title: "Radiology, CT Scan & 24x7 Pharmacy",
+    category: "Advanced Diagnostics",
+    description: "In-house diagnostic center for rapid CT scanning, color Doppler ultrasound, digital X-rays, histopathology biopsies, liver biochemistry, and a fully stocked 24x7 hospital pharmacy.",
+    features: [
+      "Multi-Slice CT Scan & Color Doppler Ultrasound",
+      "Rapid Histopathology & Biopsy Staging",
+      "24x7 Emergency In-House Pharmacy"
+    ],
+    icon: <ShieldCheck className="w-6 h-6 stroke-[2.5]" />,
+    imageUrl: "/facilities/ct-scan.jpg"
+  },
+  {
+    id: "tumor-board",
+    title: "Joint GI Tumor Board Facility",
+    category: "Multidisciplinary Panel",
+    description: "Dedicated conference and tumor board facility where GI surgeons, medical oncologists, radiologists, and pathologists meet to formulate personalized cancer treatment plans.",
+    features: [
+      "Joint Surgical Oncology Conferences",
+      "Multidisciplinary Cancer Staging Protocols",
+      "Comprehensive Care under One Roof"
+    ],
+    icon: <Users className="w-6 h-6 stroke-[2.5]" />,
+    imageUrl: "/facilities/tumor-board.jpg"
+  },
+  {
+    id: "opd-clinic",
+    title: "Out-Patient OPD Clinics & Waiting Suite",
+    category: "Consultation Suite",
+    description: "Spacious, comfortable out-patient consultation rooms equipped with digital health records, private examination couches, and comfortable waiting lounges for patients and families.",
+    features: [
+      "Private Specialist Consultation Suites",
+      "Digital Electronic Medical Record Integration",
+      "Spacious Patient & Family Waiting Lounges"
+    ],
+    icon: <Stethoscope className="w-6 h-6 stroke-[2.5]" />,
+    imageUrl: "/facilities/opd-clinic.jpg"
+  }
+];
 
 const wardRooms = [
   {
@@ -41,80 +133,18 @@ export default function Facilities() {
           World-Class Medical Infrastructure
         </span>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0F172A]">
-          Hospital Facilities &amp; In-Patient Wards
+          Hospital Facilities &amp; In-Patient Infrastructure
         </h1>
         <p className="text-sm sm:text-base text-[#334155] leading-relaxed font-medium">
           Designed specifically for complex gastrointestinal surgeries, endoscopic interventions, and acute critical care with strict NABH safety protocols.
         </p>
       </div>
 
-      {/* Facilities Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        {/* Facility 1: Modular OTs */}
-        <div id="modular-ot" className="bg-white border border-[#A9C3C9] p-8 rounded-3xl space-y-4 shadow-md">
-          <div className="w-12 h-12 rounded-2xl pastel-emerald-gradient flex items-center justify-center text-white font-bold shadow-sm">
-            <Building2 className="w-6 h-6 stroke-[2.5]" />
-          </div>
-          <h2 className="text-xl font-extrabold text-[#0F172A]">Modular Operation Theatres</h2>
-          <p className="text-xs text-[#475569] leading-relaxed font-medium">
-            Equipped with HEPA laminar airflow filtration to maintain sterile environments. Advanced Karl Storz &amp; Stryker laparoscopic HD towers for minimal-access GI, bariatric, and HPB cancer procedures.
-          </p>
-          <ul className="text-xs text-[#334155] space-y-1.5 pt-2 font-medium">
-            <li>• HEPA Laminar Airflow &amp; Anti-Bacterial Seamless Walls</li>
-            <li>• High-Definition 4K Laparoscopic &amp; Electrocautery Towers</li>
-            <li>• Dedicated Anaesthesia Workstations with Invasive Monitoring</li>
-          </ul>
-        </div>
-
-        {/* Facility 2: Endoscopy Suite */}
-        <div id="endoscopy-suite" className="bg-white border border-[#A9C3C9] p-8 rounded-3xl space-y-4 shadow-md">
-          <div className="w-12 h-12 rounded-2xl bg-sky-600 flex items-center justify-center text-white font-bold shadow-sm">
-            <Microscope className="w-6 h-6 stroke-[2.5]" />
-          </div>
-          <h2 className="text-xl font-extrabold text-[#0F172A]">Advanced Endoscopy &amp; ERCP Suite</h2>
-          <p className="text-xs text-[#475569] leading-relaxed font-medium">
-            Dedicated video endoscopy room featuring Olympus Narrow Band Imaging (NBI) endoscopy systems for early cancer detection, therapeutic ERCP, and esophageal motility testing.
-          </p>
-          <ul className="text-xs text-[#334155] space-y-1.5 pt-2 font-medium">
-            <li>• Olympus High-Definition Upper GI Endoscopes &amp; Colonoscopes</li>
-            <li>• C-Arm Fluoroscopy for Precision ERCP Stone Extraction</li>
-            <li>• Automated Endoscope Reprocessing &amp; Disinfection Protocols</li>
-          </ul>
-        </div>
-
-        {/* Facility 3: ICU & HDU */}
-        <div id="icu" className="bg-white border border-[#A9C3C9] p-8 rounded-3xl space-y-4 shadow-md">
-          <div className="w-12 h-12 rounded-2xl bg-rose-600 flex items-center justify-center text-white font-bold shadow-sm">
-            <Activity className="w-6 h-6 stroke-[2.5]" />
-          </div>
-          <h2 className="text-xl font-extrabold text-[#0F172A]">GI Intensive Care Unit (ICU &amp; HDU)</h2>
-          <p className="text-xs text-[#475569] leading-relaxed font-medium">
-            Multi-bed critical care unit staffed 24x7 by intensivists and trained ICU nurses. Specialized for severe acute pancreatitis, GI bleeding, liver failure, and post-major HPB surgery recovery.
-          </p>
-          <ul className="text-xs text-[#334155] space-y-1.5 pt-2 font-medium">
-            <li>• Advanced Mechanical Ventilators &amp; Syringe Infusion Pumps</li>
-            <li>• Central Hemodynamic &amp; Arterial Blood Gas Monitoring</li>
-            <li>• 1:1 Nurse-to-Patient Ratio for Critical GI Patients</li>
-          </ul>
-        </div>
-
-        {/* Facility 4: Radiology & Lab */}
-        <div id="radiology-lab" className="bg-white border border-[#A9C3C9] p-8 rounded-3xl space-y-4 shadow-md">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-600 flex items-center justify-center text-white font-bold shadow-sm">
-            <ShieldCheck className="w-6 h-6 stroke-[2.5]" />
-          </div>
-          <h2 className="text-xl font-extrabold text-[#0F172A]">Radiology, Pathology &amp; 24x7 Pharmacy</h2>
-          <p className="text-xs text-[#475569] leading-relaxed font-medium">
-            In-house diagnostic center for rapid ultrasound, color Doppler, digital X-rays, histopathology biopsies, liver biochemistry, and a fully stocked 24x7 hospital pharmacy.
-          </p>
-          <ul className="text-xs text-[#334155] space-y-1.5 pt-2 font-medium">
-            <li>• Color Doppler Ultrasound for Liver &amp; Vascular Evaluation</li>
-            <li>• Rapid Histopathology &amp; Biopsy Staging</li>
-            <li>• 24x7 Emergency In-House Pharmacy</li>
-          </ul>
-        </div>
-
+      {/* Facilities Grid with 2-State Interactive Background Image Hover Transformation */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {facilitiesList.map((facility) => (
+          <FacilityCard key={facility.id} {...facility} />
+        ))}
       </div>
 
       {/* Ward Rooms Showcase Section */}
@@ -191,7 +221,10 @@ export default function Facilities() {
         <p className="text-xs text-[#475569] font-medium">Experience world-class GI care in Vadodara, Gujarat.</p>
         <div className="flex justify-center gap-4 pt-2">
           <Link to="/book-appointment" className="px-6 py-3 rounded-xl text-white pastel-emerald-gradient font-bold text-xs shadow-md">
-            Book Appointment
+            Book Appointment Now
+          </Link>
+          <Link to="/contact" className="px-6 py-3 rounded-xl bg-[#EBF0F5] border border-[#CFDAE6] text-[#2C4A6F] font-bold text-xs hover:bg-[#DEE7F0]">
+            Get Hospital Location &amp; Directions
           </Link>
         </div>
       </div>
