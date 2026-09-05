@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Clock, MapPin, ShieldAlert, Award } from 'lucide-react';
+import QRCodeModal from './QRCodeModal';
 
 export default function EmergencyBanner() {
   return (
@@ -34,6 +35,7 @@ export default function EmergencyBanner() {
             <Clock className="w-3 h-3 text-[#BDE3DB]" />
             OPD: 10 AM - 8 PM
           </span>
+          <QRCodeModal variant="banner" />
         </div>
       </div>
     </div>

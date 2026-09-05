@@ -3,7 +3,6 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import EmergencyBanner from '@/components/EmergencyBanner';
-import FloatingCTA from '@/components/FloatingCTA';
 import CookieBanner from '@/components/CookieBanner';
 import AIChatWidget from '@/components/AIChatWidget';
 

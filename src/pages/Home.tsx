@@ -4,7 +4,6 @@ import HeroSlider from '@/components/HeroSlider';
 import ServiceCard from '@/components/ServiceCard';
 import DoctorCard, { Doctor } from '@/components/DoctorCard';
 import FacilityCard from '@/components/FacilityCard';
-import SymptomChecker from '@/components/SymptomChecker';
 import ReviewSystem from '@/components/ReviewSystem';
 import InsurancePartners from '@/components/InsurancePartners';
 import GoogleMapLocation from '@/components/GoogleMapLocation';
@@ -179,11 +178,6 @@ export default function Home() {
             <ServiceCard key={service.id} {...service} />
           ))}
         </div>
-      </section>
-
-      {/* Interactive Symptom Checker Router */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SymptomChecker />
       </section>
 
       {/* Specialist Doctor Roster Section */}
