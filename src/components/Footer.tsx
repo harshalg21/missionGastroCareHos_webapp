@@ -118,6 +118,11 @@ export default function Footer() {
             <li>
               <Link to="/patient-rights" className="hover:text-[#5EEAD4] transition-colors">Patient Charter &amp; Rights</Link>
             </li>
+            <li>
+              <Link to="/admin" className="hover:text-[#5EEAD4] transition-colors text-emerald-400 font-semibold flex items-center gap-1">
+                <span>Doctor Admin Portal 🔒</span>
+              </Link>
+            </li>
           </ul>
         </div>
 

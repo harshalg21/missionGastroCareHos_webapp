@@ -113,13 +113,13 @@ export default function Blog() {
             </div>
 
             <div className="pt-5">
-              <button
-                onClick={() => alert(`Reading article: ${article.title}`)}
+              <a
+                href="/media"
                 className="inline-flex items-center gap-2 text-xs font-bold text-[#1D5E54] hover:text-[#164E43] hover:underline"
               >
-                <span>Read Full Medical Article</span>
+                <span>Read Full Article on Media &amp; Health Hub</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
             </div>
           </div>
         ))}

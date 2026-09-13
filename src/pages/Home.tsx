@@ -4,7 +4,6 @@ import HeroSlider from '@/components/HeroSlider';
 import ServiceCard from '@/components/ServiceCard';
 import DoctorCard, { Doctor } from '@/components/DoctorCard';
 import FacilityCard from '@/components/FacilityCard';
-import SymptomChecker from '@/components/SymptomChecker';
 import ReviewSystem from '@/components/ReviewSystem';
 import InsurancePartners from '@/components/InsurancePartners';
 import GoogleMapLocation from '@/components/GoogleMapLocation';
@@ -81,7 +80,8 @@ const doctors: Doctor[] = [
     specialties: ["Therapeutic ERCP", "Advanced Endoscopy", "Inflammatory Bowel Disease (IBD)", "Liver Care"],
     opdDays: "Mon - Sat (10 AM - 2 PM)",
     bio: "Pioneer in therapeutic ERCP and diagnostic gastroenterology in Vadodara with over 15,000 successful endoscopic procedures.",
-    photoUrl: "/doctors/Dr_Jitendra_Mistry.jpg"
+    photoUrl: "/doctors/Dr_Jitendra_Mistry.jpg",
+    website: "http://drjitendramistry.com/index.html"
   },
   {
     id: "doc-2",
@@ -179,11 +179,6 @@ export default function Home() {
             <ServiceCard key={service.id} {...service} />
           ))}
         </div>
-      </section>
-
-      {/* Interactive Symptom Checker Router */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SymptomChecker />
       </section>
 
       {/* Specialist Doctor Roster Section */}

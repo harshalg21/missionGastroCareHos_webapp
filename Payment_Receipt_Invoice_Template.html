@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official Payment Receipt — Mission Gastrocare</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      background-color: #f8fafc;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .receipt-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid #e2e8f0;
+      padding: 44px;
+    }
+    .receipt-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid #1d5e54;
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .receipt-header h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+      color: #164e43;
+    }
+    .receipt-header p {
+      margin: 4px 0 0 0;
+      font-size: 12px;
+      color: #64748b;
+      font-weight: 600;
+    }
+    .status-stamp {
+      background-color: #dcfce7;
+      color: #15803d;
+      border: 1px solid #86efac;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .grid-2 {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      gap: 20px;
+    }
+    .info-block {
+      width: 48%;
+      font-size: 12px;
+      line-height: 1.6;
+      background-color: #f8fafc;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+    }
+    .info-block strong {
+      color: #0f172a;
+      font-size: 13px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 12px;
+    }
+    th, td {
+      border: 1px solid #cbd5e1;
+      padding: 12px 14px;
+      text-align: left;
+    }
+    th {
+      background-color: #0b2e28;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    .paid-row {
+      background-color: #e1f2ee !important;
+      font-weight: 700;
+      color: #164e43;
+    }
+    .tx-details {
+      background: #f1f5f9;
+      border: 1px dashed #94a3b8;
+      border-radius: 10px;
+      padding: 16px;
+      margin: 24px 0;
+      font-size: 12px;
+    }
+    .signature-grid {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 44px;
+      padding-top: 24px;
+      border-top: 1px solid #e2e8f0;
+    }
+    .sig-box {
+      width: 45%;
+      font-size: 12px;
+    }
+    .sig-line {
+      border-bottom: 1px solid #94a3b8;
+      margin-top: 40px;
+      margin-bottom: 8px;
+    }
+    @media print {
+      body { background: none; padding: 0; }
+      .receipt-container { box-shadow: none; border: none; padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="receipt-container">
+    
+    <!-- Receipt Header -->
+    <div class="receipt-header">
+      <div>
+        <h1>PAYMENT RECEIPT &amp; TAX INVOICE</h1>
+        <p>Harshal &amp; Team — Digital Web Engineering &amp; Architecture</p>
+      </div>
+      <div>
+        <span class="status-stamp">✓ 50% ADVANCE PAID</span>
+      </div>
+    </div>
+
+    <!-- Client & Vendor Details -->
+    <div class="grid-2">
+      <div class="info-block">
+        <strong>BILLED TO:</strong><br>
+        Mission Gastrocare (Institute of GI Surgery)<br>
+        Attn: Dr. Jitendra Mistry (Director)<br>
+        "Doctor House", Jetalpur Road, Vadodara 390020<br>
+        Phone: 0265-2393766
+      </div>
+      <div class="info-block">
+        <strong>RECEIPT METADATA:</strong><br>
+        Receipt Ref: <strong>INV-MGC-2026-001</strong><br>
+        Date: <strong>September 4, 2026</strong><br>
+        Payment Status: <strong>50% Advance Token Received</strong><br>
+        Balance Status: <strong>50% Due on Go-Live</strong>
+      </div>
+    </div>
+
+    <!-- Payment Line Items -->
+    <table>
+      <thead>
+        <tr>
+          <th>Description of Services</th>
+          <th>Agreed Total</th>
+          <th>Status</th>
+          <th>Amount Paid</th>
+          <th>Balance Due</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="paid-row">
+          <td>
+            <strong>Complete Digital Web Application Platform</strong><br>
+            <small>(12 Clinical Modules, AI GI Symptom Triage, 3D Doctor Cards, Biopic, Cashless TPA Desk, Reviews, Careers)</small>
+          </td>
+          <td>₹1,25,000</td>
+          <td><strong>50% Advance Paid</strong></td>
+          <td><strong>₹62,500</strong></td>
+          <td><strong>₹62,500</strong></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Annual Maintenance Contract (AMC - Year 1)</strong><br>
+            <small>(AWS Cloud Hosting, Free SSL Security, Domain Renewal, Content Updates, 24x7 Support)</small>
+          </td>
+          <td>₹30,000 / yr</td>
+          <td>Due on Go-Live</td>
+          <td>₹0</td>
+          <td>₹30,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Transaction Reference -->
+    <div class="tx-details">
+      💳 <strong>TRANSACTION REFERENCE:</strong><br>
+      • Payment Mode: <strong>UPI / Bank Transfer (NEFT/RTGS) / Cheque</strong><br>
+      • Transaction UTR / Ref ID: <strong>________________________</strong><br>
+      • Amount Received in Words: <strong>Sixty-Two Thousand Five Hundred Indian Rupees Only</strong>
+    </div>
+
+    <!-- Signatures -->
+    <div class="signature-grid">
+      <div class="sig-box">
+        <strong>Received With Thanks:</strong>
+        <div class="sig-line"></div>
+        Name: Harshal &amp; Team<br>
+        Lead Digital Architect
+      </div>
+      <div class="sig-box">
+        <strong>Client Acknowledgment:</strong>
+        <div class="sig-line"></div>
+        Name: Dr. Jitendra Mistry<br>
+        Director, Mission Gastrocare
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

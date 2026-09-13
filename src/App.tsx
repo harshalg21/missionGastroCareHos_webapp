@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { Agentation } from 'agentation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import EmergencyBanner from '@/components/EmergencyBanner';
-import FloatingCTA from '@/components/FloatingCTA';
 import CookieBanner from '@/components/CookieBanner';
 import AIChatWidget from '@/components/AIChatWidget';
 
@@ -18,6 +18,7 @@ import Blog from '@/pages/Blog';
 import Careers from '@/pages/Careers';
 import Contact from '@/pages/Contact';
 import Media from '@/pages/Media';
+import AdminPortal from '@/pages/AdminPortal';
 import PatientRights from '@/pages/PatientRights';
 
 function ScrollToTop() {
@@ -56,6 +57,7 @@ export default function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/media" element={<Media />} />
+          <Route path="/admin" element={<AdminPortal />} />
           <Route path="/patient-rights" element={<PatientRights />} />
           <Route path="*" element={<Home />} />
         </Routes>
@@ -63,6 +65,7 @@ export default function App() {
       <Footer />
       <CookieBanner />
       <AIChatWidget />
+      <Agentation />
     </div>
   );
 }

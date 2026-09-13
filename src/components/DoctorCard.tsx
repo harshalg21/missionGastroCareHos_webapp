@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Award, RefreshCw, CheckCircle2, User } from 'lucide-react';
+import { Calendar, Award, RefreshCw, CheckCircle2, User, Globe, ExternalLink } from 'lucide-react';
 
 export interface Doctor {
   id: string;
@@ -12,6 +12,7 @@ export interface Doctor {
   opdDays: string;
   bio: string;
   photoUrl: string;
+  website?: string;
 }
 
 export default function DoctorCard({ doctor }: { doctor: Doctor }) {
@@ -153,11 +154,24 @@ export default function DoctorCard({ doctor }: { doctor: Doctor }) {
           </div>
 
           {/* Action CTA on Back */}
-          <div className="pt-4 border-t border-white/20">
+          <div className="pt-3 border-t border-white/20 space-y-2">
+            {(doctor.website || doctor.name.includes("Jitendra Mistry")) && (
+              <a
+                href={doctor.website || "http://drjitendramistry.com/index.html"}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center justify-center gap-1.5 w-full py-2 rounded-xl font-bold text-xs bg-white/15 border border-white/30 text-white hover:bg-white hover:text-[#164E43] transition-all shadow-sm group"
+              >
+                <Globe className="w-3.5 h-3.5 text-emerald-300 group-hover:text-[#164E43]" />
+                <span>Dr. Mistry&apos;s Official Clinical Portal</span>
+                <ExternalLink className="w-3 h-3 text-emerald-300 group-hover:text-[#164E43]" />
+              </a>
+            )}
             <Link
               to={`/book-appointment?doctor=${encodeURIComponent(doctor.name)}`}
               onClick={(e) => e.stopPropagation()}
-              className="flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-xs bg-white text-[#164E43] hover:bg-emerald-50 transition-colors shadow-md active:scale-95"
+              className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-bold text-xs bg-white text-[#164E43] hover:bg-emerald-50 transition-colors shadow-md active:scale-95"
             >
               <Calendar className="w-4 h-4 text-[#164E43]" />
               <span>Book OPD Consultation</span>
