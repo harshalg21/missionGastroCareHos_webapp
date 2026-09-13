@@ -20,7 +20,8 @@ import {
   Layers,
   FileCheck2,
   HandHeart,
-  Compass
+  Compass,
+  ExternalLink
 } from 'lucide-react';
 
 export default function About() {
@@ -348,13 +349,25 @@ export default function About() {
               <span className="text-xs text-emerald-200 font-semibold">
                 Available for OPD Consultations &amp; GI Tumor Board Panels
               </span>
-              <Link
-                to={`/book-appointment?doctor=${encodeURIComponent("Dr. Jitendra Mistry")}`}
-                className="px-5 py-2.5 rounded-xl bg-[#4DE2D1] text-[#061815] font-extrabold text-xs hover:bg-white transition-colors shadow-md active:scale-95 flex items-center gap-2"
-              >
-                <span>Book OPD Slot with Dr. Mistry</span>
-                <ChevronRight className="w-4 h-4" />
-              </Link>
+              <div className="flex flex-wrap items-center gap-3">
+                <a
+                  href="http://drjitendramistry.com/index.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2.5 rounded-xl bg-white/15 border border-white/30 text-white font-extrabold text-xs hover:bg-white hover:text-[#061815] transition-all shadow-sm flex items-center gap-2 group"
+                >
+                  <Globe className="w-3.5 h-3.5 text-[#4DE2D1] group-hover:text-[#061815]" />
+                  <span>Dr. Mistry&apos;s Official Clinical Portal</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-[#4DE2D1] group-hover:text-[#061815] group-hover:translate-x-0.5 transition-transform" />
+                </a>
+                <Link
+                  to={`/book-appointment?doctor=${encodeURIComponent("Dr. Jitendra Mistry")}`}
+                  className="px-5 py-2.5 rounded-xl bg-[#4DE2D1] text-[#061815] font-extrabold text-xs hover:bg-white transition-colors shadow-md active:scale-95 flex items-center gap-2"
+                >
+                  <span>Book OPD Slot with Dr. Mistry</span>
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+              </div>
             </div>
 
           </div>

@@ -123,3 +123,6 @@ dist-ssr
 Thumbs.db
 .vscode/
 .idea/
+
+# CodeLens Graph local index
+.codelens/

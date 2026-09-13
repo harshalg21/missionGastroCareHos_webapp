@@ -13,7 +13,8 @@ const doctors: Doctor[] = [
     specialties: ["Therapeutic ERCP", "Advanced Endoscopy", "Inflammatory Bowel Disease (IBD)", "Liver Care"],
     opdDays: "Mon - Sat (10 AM - 2 PM)",
     bio: "Pioneer in therapeutic ERCP and diagnostic gastroenterology in Vadodara with over 15,000 successful endoscopic procedures.",
-    photoUrl: "/doctors/Dr_Jitendra_Mistry.jpg"
+    photoUrl: "/doctors/Dr_Jitendra_Mistry.jpg",
+    website: "http://drjitendramistry.com/index.html"
   },
   {
     id: "doc-2",
