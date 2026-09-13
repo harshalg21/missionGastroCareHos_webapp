@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Lock, Sparkles, Send, Facebook, CheckCircle2, RefreshCw, 
   FileText, Users, Eye, Zap, ArrowRight, ShieldCheck, 
@@ -1002,13 +1003,13 @@ export default function AdminPortal() {
                 ))}
               </div>
 
-              <a
-                href="/media"
+              <Link
+                to="/media"
                 className="w-full border border-slate-700 hover:border-emerald-500 text-slate-300 hover:text-white py-2.5 rounded-xl transition-all text-xs font-bold flex items-center justify-center gap-2"
               >
                 <span>View Live Articles on Website Media Hub</span>
                 <ArrowRight className="w-3.5 h-3.5" />
-              </a>
+              </Link>
             </div>
           </div>
 

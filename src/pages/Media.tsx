@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Newspaper, Heart, Award, Image, Sparkles, ExternalLink, 
   Calendar, Search, BookOpen, User, ArrowRight, Share2, 
@@ -472,13 +473,13 @@ export default function Media() {
 
         {/* Doctor Admin Action Button */}
         <div className="relative z-10 shrink-0">
-          <a
-            href="/admin"
+          <Link
+            to="/admin"
             className="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md text-white px-5 py-3 rounded-2xl text-xs font-extrabold flex items-center gap-2 transition-all shadow-md hover:scale-105"
           >
             <Sparkles className="w-4 h-4 text-emerald-300" />
             <span>Doctor Admin Portal 🔒</span>
-          </a>
+          </Link>
         </div>
       </div>
 

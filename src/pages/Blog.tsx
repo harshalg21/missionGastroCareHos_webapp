@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight, User } from 'lucide-react';
 
 const articles = [
@@ -113,13 +114,13 @@ export default function Blog() {
             </div>
 
             <div className="pt-5">
-              <a
-                href="/media"
+              <Link
+                to="/media"
                 className="inline-flex items-center gap-2 text-xs font-bold text-[#1D5E54] hover:text-[#164E43] hover:underline"
               >
                 <span>Read Full Article on Media &amp; Health Hub</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
           </div>
         ))}
