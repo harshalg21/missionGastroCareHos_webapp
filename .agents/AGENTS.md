@@ -2,7 +2,7 @@
 ## CodeLens Graph — Mandatory Search Protocol
 
 This workspace has a live codebase knowledge graph via **CodeLens Graph** MCP.
-The graph contains **230 symbols** across **34 files**, updated on every save.
+The graph contains **247 symbols** across **37 files**, updated on every save.
 
 ### RULE 1 — Triage first to establish the baseline
 Before starting a task, call `codelens_triage` to classify it.

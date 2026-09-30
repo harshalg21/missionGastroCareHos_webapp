@@ -20,6 +20,9 @@ import Contact from '@/pages/Contact';
 import Media from '@/pages/Media';
 import AdminPortal from '@/pages/AdminPortal';
 import PatientRights from '@/pages/PatientRights';
+import PrivacyPolicy from '@/pages/PrivacyPolicy';
+import TermsAndConditions from '@/pages/TermsAndConditions';
+import NotFound from '@/pages/NotFound';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -59,7 +62,9 @@ export default function App() {
           <Route path="/media" element={<Media />} />
           <Route path="/admin" element={<AdminPortal />} />
           <Route path="/patient-rights" element={<PatientRights />} />
-          <Route path="*" element={<Home />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

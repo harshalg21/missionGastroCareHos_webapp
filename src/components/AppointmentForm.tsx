@@ -31,12 +31,14 @@ export default function AppointmentForm({ initialDoctor }: { initialDoctor?: str
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('Male');
   const [symptoms, setSymptoms] = useState('');
+  const [honeypot, setHoneypot] = useState('');
   const [isBooked, setIsBooked] = useState(false);
 
   const currentDocFee = doctorsList.find(d => d.name === selectedDoctor)?.fee || "₹800";
 
   const handleNextStep = (e: React.FormEvent) => {
     e.preventDefault();
+    if (honeypot) return; // Anti-spam bot protection
     if (step === 1) setStep(2);
     else if (step === 2) setStep(3);
     else if (step === 3) {
