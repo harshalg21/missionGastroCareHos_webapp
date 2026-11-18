@@ -6,7 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build && node -e \"import('fs').then(fs=>fs.copyFileSync('dist/index.html','dist/404.html'))\"",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:e2e": "node tests/e2e/playwright_live_runner.mjs",
+    "skill": "node .agents/skills.cjs",
+    "skill:list": "node .agents/skills.cjs list",
+    "skill:search": "node .agents/skills.cjs search",
+    "skill:bundles": "node .agents/skills.cjs bundles"
   },
   "dependencies": {
     "agentation": "^3.0.2",

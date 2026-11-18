@@ -126,3 +126,12 @@ Thumbs.db
 
 # CodeLens Graph local index
 .codelens/
+
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Antigravity Skills Catalog & scratch
+.agents/awesome-skills/
+scratch/

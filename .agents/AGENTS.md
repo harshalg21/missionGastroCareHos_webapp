@@ -1,8 +1,26 @@
+## 🌟 Mission Gastrocare — Core Engineering & AI Agent Rules
+
+### RULE 7 — Surgical Edits & Minimal Diff Protocol (MANDATORY)
+- **NEVER rewrite or regenerate entire 50–200 line files when making 1–10 line changes.**
+- Always target the exact lines that need editing using targeted contiguous diff tools.
+- Preserve unrelated comments, docstrings, imports, and component lifecycle logic while permitting deliberate updates to lines targeted by the task.
+
+### RULE 8 — Grounding in `docs/` Before Building
+- Before modifying architecture, database, API, or styling, always consult the project documentation suite in `docs/`:
+  - `docs/prd.md` — Product requirements, clinical user personas, and scope.
+  - `docs/design.md` — Brand palette (`#1D5E54`), typography, Medical Discretion Blur Shield UX.
+  - `docs/architecture.md` — Client-server system architecture & Render SPA rewrites.
+  - `docs/database.md` — PostgreSQL models & Prisma ORM schemas.
+  - `docs/api.md` — REST API contracts & JSON envelopes.
+  - `docs/plan.md` — Phased implementation plan & next milestones.
+  - `docs/testing.md` — QA strategy & Playwright E2E browser tests.
+  - `docs/debugging.md` — Incident runbook & troubleshooting.
+
 <!-- CODELENS_MANAGED_START -->
 ## CodeLens Graph — Mandatory Search Protocol
 
-This workspace has a live codebase knowledge graph via **CodeLens Graph** MCP.
-The graph contains **247 symbols** across **37 files**, updated on every save.
+This workspace has a live codebase knowledge graph via **CodeLens Graph** MCP, updated on every save.
+Run `codelens_status` for current symbol and file counts.
 
 ### RULE 1 — Triage first to establish the baseline
 Before starting a task, call `codelens_triage` to classify it.
@@ -24,9 +42,10 @@ Avoid generic workspace scans (grep, ls, find) or reading whole files. Use these
 | See transitive dependencies | `codelens_impact` | Automatically runs BFS to map the blast radius |
 | Check directory structure | `codelens_files` | Returns category-grouped file list |
 
-### RULE 3 — Read only what CodeLens points to
-When CodeLens tools return a `file:line` range, read only that specific range using the `view_file` tool (with StartLine and EndLine).
-Do NOT read whole files, and never read files that are not listed in the graph response.
+### RULE 3 — Read only what CodeLens points to (Source Code Files)
+When CodeLens tools return a `file:line` range, read only that specific range using targeted file reading tools (with StartLine and EndLine).
+Do NOT read whole source files, and never read source files that are not listed in the graph response.
+*Exemption*: Architecture specifications, PRD, and design references in `docs/` are non-AST markdown files exempt from CodeLens symbol queries; consult `docs/` directly as mandated by RULE 8.
 
 ### RULE 4 — Check before creating
 Before writing a new function, class, or file, run `codelens_search` to ensure you are not creating a duplicate. Duplication is the #1 source of code rot.

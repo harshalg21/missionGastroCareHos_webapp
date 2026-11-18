@@ -785,8 +785,11 @@ export default function Media() {
                         : 'group-hover:scale-108'
                     }`}
                     loading="lazy"
+                    decoding="async"
                     onError={(e) => {
-                      (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80";
+                      const target = e.currentTarget;
+                      target.onerror = null;
+                      target.src = "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80";
                     }}
                   />
                   
@@ -943,8 +946,11 @@ export default function Media() {
                     ? 'filter blur-2xl brightness-50 select-none scale-105'
                     : ''
                 }`}
+                decoding="async"
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80";
+                  const target = e.currentTarget;
+                  target.onerror = null;
+                  target.src = "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80";
                 }}
               />
 

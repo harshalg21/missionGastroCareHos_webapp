@@ -4,10 +4,12 @@ import GoogleMapLocation from '@/components/GoogleMapLocation';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [honeypot, setHoneypot] = useState('');
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (honeypot.trim() !== '') return; // Silently drop bot submission
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
@@ -128,10 +130,23 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Invisible Anti-Spam Honeypot */}
+                <div className="hidden" aria-hidden="true">
+                  <input
+                    type="text"
+                    name="contact_hp"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                  />
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-[#334155] mb-1">Your Full Name</label>
+                    <label htmlFor="contact-name" className="block text-xs font-semibold text-[#334155] mb-1">Your Full Name</label>
                     <input
+                      id="contact-name"
                       type="text"
                       required
                       placeholder="e.g. Ramesh Patel"
@@ -142,8 +157,9 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#334155] mb-1">Mobile Number</label>
+                    <label htmlFor="contact-phone" className="block text-xs font-semibold text-[#334155] mb-1">Mobile Number</label>
                     <input
+                      id="contact-phone"
                       type="tel"
                       required
                       placeholder="+91 98765 43210"
@@ -156,8 +172,9 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-[#334155] mb-1">Email Address</label>
+                    <label htmlFor="contact-email" className="block text-xs font-semibold text-[#334155] mb-1">Email Address</label>
                     <input
+                      id="contact-email"
                       type="email"
                       required
                       placeholder="name@example.com"
@@ -168,8 +185,9 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#334155] mb-1">Subject / Department</label>
+                    <label htmlFor="contact-subject" className="block text-xs font-semibold text-[#334155] mb-1">Subject / Department</label>
                     <select
+                      id="contact-subject"
                       value={form.subject}
                       onChange={(e) => setForm({ ...form, subject: e.target.value })}
                       className="w-full bg-[#FAFBFB] border border-[#A9C3C9] rounded-xl px-3.5 py-2.5 text-xs text-[#1E293B] focus:outline-none focus:border-[#2E7D72]"
@@ -184,8 +202,9 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-[#334155] mb-1">Your Message / Medical Details</label>
+                  <label htmlFor="contact-message" className="block text-xs font-semibold text-[#334155] mb-1">Your Message / Medical Details</label>
                   <textarea
+                    id="contact-message"
                     rows={4}
                     required
                     placeholder="Describe your symptoms or questions..."

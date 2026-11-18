@@ -2,10 +2,10 @@ import { chromium } from 'playwright';
 
 async function runLiveBrowserE2ETest() {
   console.log("===============================================================================");
-  console.log("    LIVE PLAYWRIGHT E2E BROWSER SUBAGENT: TESTING DEPLOYED RENDER APPLICATION  ");
+  console.log("    LIVE PLAYWRIGHT E2E BROWSER SUITE: MISSION GASTROCARE WEB APPLICATION      ");
   console.log("===============================================================================\n");
 
-  const baseUrl = "https://missiongastrocarehos-webapp.onrender.com";
+  const baseUrl = process.env.TARGET_URL || "https://missiongastrocarehos-webapp.onrender.com";
   console.log(`[INIT] Launching Playwright Headless Chromium Browser for target: ${baseUrl}\n`);
 
   const browser = await chromium.launch({ headless: true });
@@ -112,10 +112,11 @@ async function runLiveBrowserE2ETest() {
 
   } catch (err) {
     console.error("\n[ERROR] Test execution interrupted:", err.message);
+    process.exitCode = 1;
   } finally {
     await browser.close();
     console.log("\n===============================================================================");
-    console.log("      PLAYWRIGHT LIVE E2E BROWSER SUBAGENT: WALKTHROUGH COMPLETED             ");
+    console.log("      PLAYWRIGHT LIVE E2E BROWSER SUITE: WALKTHROUGH COMPLETED                ");
     console.log("===============================================================================");
   }
 }

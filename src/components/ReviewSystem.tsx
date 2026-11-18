@@ -96,8 +96,12 @@ export default function ReviewSystem() {
     }, 1800);
   };
 
+  const [votedReviews, setVotedReviews] = useState<Set<string>>(new Set());
+
   const handleHelpful = (id: string) => {
-    setReviews(reviews.map(r => r.id === id ? { ...r, helpfulCount: r.helpfulCount + 1 } : r));
+    if (votedReviews.has(id)) return;
+    setVotedReviews(prev => new Set(prev).add(id));
+    setReviews(prev => prev.map(r => r.id === id ? { ...r, helpfulCount: r.helpfulCount + 1 } : r));
   };
 
   return (
@@ -251,6 +255,7 @@ export default function ReviewSystem() {
               </div>
               <button
                 onClick={() => setIsModalOpen(false)}
+                aria-label="Close review dialog"
                 className="p-1 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100"
               >
                 <X className="w-5 h-5" />

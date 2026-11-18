@@ -27,12 +27,21 @@ export default function DoctorCard({ doctor }: { doctor: Doctor }) {
 
   return (
     <div
-      className="h-[490px] perspective-1000 group cursor-pointer"
+      className="h-[490px] perspective-1000 group cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1D5E54] focus-visible:ring-offset-2 rounded-3xl"
       onClick={() => setIsFlipped(!isFlipped)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setIsFlipped(!isFlipped);
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      aria-label={`View clinical biography and credentials for ${doctor.name}`}
     >
       {/* 3D Inner Card Container */}
       <div
-        className={`relative w-full h-full duration-700 transform-style-3d transition-transform group-hover:rotate-y-180 ${isFlipped ? 'rotate-y-180' : ''
+        className={`relative w-full h-full duration-700 transform-style-3d transition-transform md:group-hover:rotate-y-180 ${isFlipped ? 'rotate-y-180' : ''
           }`}
       >
 
@@ -95,7 +104,7 @@ export default function DoctorCard({ doctor }: { doctor: Doctor }) {
           <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#1D5E54] group-hover:text-[#164E43]">
             <span className="flex items-center gap-1.5 text-[11px]">
               <RefreshCw className="w-3.5 h-3.5 text-[#2E7D72] animate-spin-slow" />
-              Hover Card to Flip &amp; Read Bio
+              Tap or Hover to Read Bio
             </span>
             <span>→</span>
           </div>

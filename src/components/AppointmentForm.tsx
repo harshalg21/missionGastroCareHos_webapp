@@ -21,7 +21,7 @@ const timeSlots = ["10:00 AM", "11:30 AM", "01:00 PM", "04:00 PM", "05:30 PM", "
 export default function AppointmentForm({ initialDoctor }: { initialDoctor?: string }) {
   const [step, setStep] = useState(1);
   const [selectedDoctor, setSelectedDoctor] = useState(initialDoctor || doctorsList[0].name);
-  const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
+  const [selectedDate, setSelectedDate] = useState(() => new Date().toISOString().split('T')[0]);
   const [selectedSlot, setSelectedSlot] = useState(timeSlots[0]);
   const [consultType, setConsultType] = useState<'in-person' | 'online'>('in-person');
   
@@ -33,6 +33,7 @@ export default function AppointmentForm({ initialDoctor }: { initialDoctor?: str
   const [symptoms, setSymptoms] = useState('');
   const [honeypot, setHoneypot] = useState('');
   const [isBooked, setIsBooked] = useState(false);
+  const [bookingRef, setBookingRef] = useState('');
 
   const currentDocFee = doctorsList.find(d => d.name === selectedDoctor)?.fee || "₹800";
 
@@ -42,6 +43,7 @@ export default function AppointmentForm({ initialDoctor }: { initialDoctor?: str
     if (step === 1) setStep(2);
     else if (step === 2) setStep(3);
     else if (step === 3) {
+      setBookingRef(`MGC-${Math.floor(100000 + Math.random() * 900000)}`);
       setIsBooked(true);
     }
   };
@@ -76,7 +78,7 @@ export default function AppointmentForm({ initialDoctor }: { initialDoctor?: str
 
           <div className="space-y-2">
             <span className="text-xs font-extrabold uppercase tracking-wider text-[#1D5E54] bg-[#E1F2EE] px-3 py-1 rounded-full border border-[#BDE3DB]">
-              Booking Ref: MGC-{Math.floor(100000 + Math.random() * 900000)}
+              Booking Ref: {bookingRef || 'MGC-849201'}
             </span>
             <h2 className="text-2xl font-extrabold text-[#0F172A]">Consultation Appointment Confirmed!</h2>
             <p className="text-xs text-[#475569] max-w-md mx-auto font-medium">
@@ -113,7 +115,7 @@ export default function AppointmentForm({ initialDoctor }: { initialDoctor?: str
               Receive Booking Slip on WhatsApp
             </a>
             <button
-              onClick={() => { setStep(1); setIsBooked(false); }}
+              onClick={() => { setStep(1); setIsBooked(false); setBookingRef(''); }}
               className="px-6 py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs hover:bg-slate-200 transition-colors"
             >
               Book Another Appointment
@@ -236,8 +238,9 @@ export default function AppointmentForm({ initialDoctor }: { initialDoctor?: str
             <div className="space-y-6 animate-in fade-in duration-200">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1">
-                  <label className="block text-xs font-bold text-[#334155]">Full Patient Name *</label>
+                  <label htmlFor="apt-patient-name" className="block text-xs font-bold text-[#334155]">Full Patient Name *</label>
                   <input
+                    id="apt-patient-name"
                     type="text"
                     value={patientName}
                     onChange={(e) => setPatientName(e.target.value)}
@@ -248,8 +251,9 @@ export default function AppointmentForm({ initialDoctor }: { initialDoctor?: str
                 </div>
 
                 <div className="space-y-1">
-                  <label className="block text-xs font-bold text-[#334155]">Mobile Phone Number *</label>
+                  <label htmlFor="apt-phone" className="block text-xs font-bold text-[#334155]">Mobile Phone Number *</label>
                   <input
+                    id="apt-phone"
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
@@ -260,8 +264,9 @@ export default function AppointmentForm({ initialDoctor }: { initialDoctor?: str
                 </div>
 
                 <div className="space-y-1">
-                  <label className="block text-xs font-bold text-[#334155]">Email Address (Optional)</label>
+                  <label htmlFor="apt-email" className="block text-xs font-bold text-[#334155]">Email Address (Optional)</label>
                   <input
+                    id="apt-email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -272,8 +277,9 @@ export default function AppointmentForm({ initialDoctor }: { initialDoctor?: str
 
                 <div className="grid grid-cols-2 gap-2">
                   <div className="space-y-1">
-                    <label className="block text-xs font-bold text-[#334155]">Age</label>
+                    <label htmlFor="apt-age" className="block text-xs font-bold text-[#334155]">Age</label>
                     <input
+                      id="apt-age"
                       type="number"
                       value={age}
                       onChange={(e) => setAge(e.target.value)}
@@ -282,8 +288,9 @@ export default function AppointmentForm({ initialDoctor }: { initialDoctor?: str
                     />
                   </div>
                   <div className="space-y-1">
-                    <label className="block text-xs font-bold text-[#334155]">Gender</label>
+                    <label htmlFor="apt-gender" className="block text-xs font-bold text-[#334155]">Gender</label>
                     <select
+                      id="apt-gender"
                       value={gender}
                       onChange={(e) => setGender(e.target.value)}
                       className="w-full bg-[#FAFBFB] border border-[#A9C3C9] rounded-xl p-3 text-xs text-[#1E293B] focus:outline-none focus:border-[#2E7D72] font-medium"
@@ -298,8 +305,9 @@ export default function AppointmentForm({ initialDoctor }: { initialDoctor?: str
 
               {/* Symptoms / Chief Complaint */}
               <div className="space-y-1">
-                <label className="block text-xs font-bold text-[#334155]">Symptoms &amp; Chief Complaints</label>
+                <label htmlFor="apt-symptoms" className="block text-xs font-bold text-[#334155]">Symptoms &amp; Chief Complaints</label>
                 <textarea
+                  id="apt-symptoms"
                   rows={3}
                   value={symptoms}
                   onChange={(e) => setSymptoms(e.target.value)}
